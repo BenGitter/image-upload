@@ -8,7 +8,7 @@
   height: 5px;
   background: #006400;
   opacity: 1;
-  transition: opacity 1s;
+  transition: opacity 1s, width .5s ease-out;
 }
 
 .fadeOut{
