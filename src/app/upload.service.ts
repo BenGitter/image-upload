@@ -8,11 +8,13 @@ export class UploadService {
 
   showProgress: boolean = false;
   uploadProgressEvent: Subject<number> = new Subject();
+  errorState: boolean = false;
 
   constructor(private http:HttpClient) { }
 
   submitForm(e:any){
     this.showProgress = true;
+    this.errorState = false;
 
     const formData = new FormData();
     formData.append("upfile", e.target[0].files[0]);
@@ -24,10 +26,7 @@ export class UploadService {
     return this.http.request(req);
   }
 
-  hideProgressBar(){
-    setTimeout(() => {
-      this.uploadProgressEvent.next(0);
-      this.showProgress = false;
-    }, 1000);
+  setErrorState(bool:boolean){
+    this.errorState = bool;
   }
 }

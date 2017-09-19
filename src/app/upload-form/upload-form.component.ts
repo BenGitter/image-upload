@@ -28,8 +28,11 @@ export class UploadFormComponent implements OnInit {
         this.showData = true;
         this.data = event.body;
 
-        this.uploadService.hideProgressBar();
+        this.uploadService.uploadProgressEvent.next(101);
       }
+    }, error => {
+      this.uploadService.setErrorState(true);
+      this.uploadService.uploadProgressEvent.next(101);
     });
   }
 

@@ -1,3 +1,8 @@
 <div class="progress-bar">
-  <div [style.width]="percentageDone+'%'" *ngIf="uploadService.showProgress" class="progress"></div>
+  <div 
+    [style.width]="percentageDone+'%'" 
+    *ngIf="uploadService.showProgress" 
+    class="progress"
+    [class.fadeOut]="fadeOut"
+    [class.error]="uploadService.errorState"></div>
 </div>

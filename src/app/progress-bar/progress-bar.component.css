@@ -7,4 +7,14 @@
 .progress{
   height: 5px;
   background: #006400;
+  opacity: 1;
+  transition: opacity 1s;
+}
+
+.fadeOut{
+  opacity: 0;
+}
+
+.error{
+  background: #800000;
 }
