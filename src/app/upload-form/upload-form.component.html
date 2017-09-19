@@ -1,0 +1,31 @@
+<div *ngIf="!showData" class="uploader">
+  <form enctype="multipart/form-data" (submit)="onSubmit($event)">
+    <input (change)="onFileChange($event)" id="file_upload" type="file" accept="image/*">
+    <label for="file_upload">
+      <div class="icon-wrapper" [class.inactive]="filename">
+        <i class="fa fa-picture-o"></i>
+      </div>
+      <div *ngIf="filename" class="btn-wrapper">
+        <div class="button">Change</div>
+      </div>
+    </label>
+  
+    <div *ngIf="filename" class="btn-wrapper">
+      <input type="submit" class="button" value="Upload">
+    </div>
+    
+  
+    <div class="selected-file" [class.active]="filename">
+      {{ filename || "Select an image..." }}
+    </div>
+  </form>
+</div>
+
+<div *ngIf="showData" class="show-data">
+  Filename: <span class="data">{{ data.name }}</span>
+  <br>
+  Size: <span class="data">{{ data.size }}</span>
+  <br>
+
+  <div (click)="onBack()" class="back-button">Back</div>
+</div>
